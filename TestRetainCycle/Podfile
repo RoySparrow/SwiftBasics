@@ -6,6 +6,8 @@ target 'TestRetainCycle' do
   use_frameworks!
 
   # Pods for TestRetainCycle
+  pod 'RxSwift', '~> 5.1'
+  pod 'RxCocoa', '~> 5.1'
 
   target 'TestRetainCycleTests' do
     inherit! :search_paths
