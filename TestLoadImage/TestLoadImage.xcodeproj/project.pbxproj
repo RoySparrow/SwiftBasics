@@ -13,6 +13,8 @@
 		493F45D12594989900AA6A52 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 493F45CF2594989900AA6A52 /* Main.storyboard */; };
 		493F45D32594989B00AA6A52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 493F45D22594989B00AA6A52 /* Assets.xcassets */; };
 		493F45D62594989B00AA6A52 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 493F45D42594989B00AA6A52 /* LaunchScreen.storyboard */; };
+		493F45DE259499D500AA6A52 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 493F45DD259499D500AA6A52 /* ImageLoader.swift */; };
+		493F45EC2594A49000AA6A52 /* Sources in Resources */ = {isa = PBXBuildFile; fileRef = 493F45EB2594A49000AA6A52 /* Sources */; };
 		A28C866705E433B213A67305 /* Pods_TestLoadImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED19D75AFEBEB1B4F35319FD /* Pods_TestLoadImage.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +28,8 @@
 		493F45D22594989B00AA6A52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		493F45D52594989B00AA6A52 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		493F45D72594989B00AA6A52 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		493F45DD259499D500AA6A52 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		493F45EB2594A49000AA6A52 /* Sources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sources; sourceTree = "<group>"; };
 		C110B48C3FE2C829F6567823 /* Pods-TestLoadImage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestLoadImage.debug.xcconfig"; path = "Target Support Files/Pods-TestLoadImage/Pods-TestLoadImage.debug.xcconfig"; sourceTree = "<group>"; };
 		ED19D75AFEBEB1B4F35319FD /* Pods_TestLoadImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestLoadImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -63,6 +67,8 @@
 		493F45C82594989900AA6A52 /* TestLoadImage */ = {
 			isa = PBXGroup;
 			children = (
+				493F45EB2594A49000AA6A52 /* Sources */,
+				493F45DF259499E000AA6A52 /* Helper */,
 				493F45C92594989900AA6A52 /* AppDelegate.swift */,
 				493F45CB2594989900AA6A52 /* SceneDelegate.swift */,
 				493F45CD2594989900AA6A52 /* ViewController.swift */,
@@ -72,6 +78,14 @@
 				493F45D72594989B00AA6A52 /* Info.plist */,
 			);
 			path = TestLoadImage;
+			sourceTree = "<group>";
+		};
+		493F45DF259499E000AA6A52 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				493F45DD259499D500AA6A52 /* ImageLoader.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		EDA75D971CB4F7214B47BC70 /* Pods */ = {
@@ -153,6 +167,7 @@
 				493F45D62594989B00AA6A52 /* LaunchScreen.storyboard in Resources */,
 				493F45D32594989B00AA6A52 /* Assets.xcassets in Resources */,
 				493F45D12594989900AA6A52 /* Main.storyboard in Resources */,
+				493F45EC2594A49000AA6A52 /* Sources in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +205,7 @@
 			files = (
 				493F45CE2594989900AA6A52 /* ViewController.swift in Sources */,
 				493F45CA2594989900AA6A52 /* AppDelegate.swift in Sources */,
+				493F45DE259499D500AA6A52 /* ImageLoader.swift in Sources */,
 				493F45CC2594989900AA6A52 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
