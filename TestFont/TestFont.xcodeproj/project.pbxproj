@@ -88,7 +88,6 @@
 				1E586F54E1A546F024168669 /* Pods-TestFont.debug.xcconfig */,
 				1F2AA77501EA8C62AE1739DE /* Pods-TestFont.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
