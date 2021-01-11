@@ -10,11 +10,125 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    @IBOutlet weak var textView: UITextView!
+    
+    @IBAction func showAlertButtonTapped(_ sender: UIButton) {
+        let alertVC = getAlertVC(message: "present alert.") { [weak self] in
+            self?.dismiss(animated: true, completion: nil)
+            self?.addLogToTextView("Dismiss alert.")
+        }
+        present(alertVC, animated: true, completion: nil)
+        addLogToTextView("Present alert.")
     }
-
-
+    
+    @IBAction func showWindowButtonTapped(_ sender: UIButton) {
+        guard let rootVC = window.rootViewController else { return }
+        
+        let alertVC = getAlertVC(message: "show window.") { [weak rootVC, weak self] in
+            guard let rootVC = rootVC else { return }
+            rootVC.dismiss(animated: true) { [weak self] in
+                self?.window.isHidden = true
+            }
+            self?.addLogToTextView("Dimiss alert and hide another window.")
+        }
+        window.makeKeyAndVisible()
+        rootVC.present(alertVC, animated: true, completion: nil)
+        addLogToTextView("Present alert to another window.")
+    }
+    
+    private lazy var window: UIWindow = {
+        addLogToTextView("Init another window.")
+        if let windowScene = self.view.window?.windowScene {
+            $0.frame = windowScene.coordinateSpace.bounds
+            $0.windowScene = windowScene
+            addLogToTextView("Set window scene.")
+        } else {
+            $0.frame = UIScreen.main.bounds
+            addLogToTextView("No window scene.")
+        }
+        $0.windowLevel = .alert - 1
+        $0.backgroundColor = .clear
+        
+        let vc = UIViewController()
+        vc.view.backgroundColor = .clear
+        $0.rootViewController = vc
+        return $0
+    }(UIWindow())
+    
+    private lazy var notificationCenter = NotificationCenter.default
+    
+    private lazy var didBecomeActiveNotification = UIApplication.didBecomeActiveNotification
+    
+    private lazy var willResignActiveNotification = UIApplication.willResignActiveNotification
+    
+    private lazy var willEnterForegroundNotification = UIApplication.willEnterForegroundNotification
+    
+    private lazy var didEnterBackgroundNotification = UIApplication.didEnterBackgroundNotification
+    
+    private lazy var willTerminateNotification = UIApplication.willTerminateNotification
+    
+    private lazy var selectorFunc = #selector(receiveNotification(notification:))
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        registerNotification()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        unregisterNotification()
+    }
+    
+    private func registerNotification() {
+        notificationCenter.addObserver(self, selector: selectorFunc, name: didBecomeActiveNotification, object: nil)
+        notificationCenter.addObserver(self, selector: selectorFunc, name: willResignActiveNotification, object: nil)
+        notificationCenter.addObserver(self, selector: selectorFunc, name: willEnterForegroundNotification, object: nil)
+        notificationCenter.addObserver(self, selector: selectorFunc, name: didEnterBackgroundNotification, object: nil)
+        notificationCenter.addObserver(self, selector: selectorFunc, name: willTerminateNotification, object: nil)
+        addLogToTextView("Notification registered.")
+    }
+    
+    private func unregisterNotification() {
+        notificationCenter.removeObserver(self)
+        addLogToTextView("Notification unregistered.")
+    }
+    
+    @objc
+    private func receiveNotification(notification: Notification) {
+        switch notification.name {
+        case didBecomeActiveNotification:
+            addLogToTextView("Receive didBecomeActiveNotification.")
+        case willResignActiveNotification:
+            addLogToTextView("Receive willResignActiveNotification.")
+        case willEnterForegroundNotification:
+            addLogToTextView("Receive willEnterForegroundNotification.")
+        case didEnterBackgroundNotification:
+            addLogToTextView("Receive didEnterBackgroundNotification.")
+        case willTerminateNotification:
+            addLogToTextView("Receive willTerminateNotification.")
+        default:
+            addLogToTextView("Receive other notification: \(notification.name).")
+        }
+    }
+    
+    private func addLogToTextView(_ log: String) {
+        var newText = textView.text ?? ""
+        newText += "\(log)\n----------\n"
+        textView.text = newText
+        
+        let bottomRange = NSMakeRange(newText.count - 1, 1)
+        textView.scrollRangeToVisible(bottomRange)
+    }
+    
+    private func getAlertVC(message: String, okButtonTapped: (()->Void)?) -> UIAlertController {
+        let alertVC = UIAlertController(title: "Tip", message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .default) { (_) in
+            okButtonTapped?()
+        }
+        alertVC.addAction(alertAction)
+        return alertVC
+    }
 }
 
