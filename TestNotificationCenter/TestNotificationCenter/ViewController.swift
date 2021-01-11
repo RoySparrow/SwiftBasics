@@ -6,13 +6,16 @@
 //  Copyright © 2021 SparrowStudio. All rights reserved.
 //
 
+import AVFoundation
 import UIKit
 
 class ViewController: UIViewController {
 
+    // MARK: - UI
+    
     @IBOutlet weak var textView: UITextView!
     
-    @IBAction func showAlertButtonTapped(_ sender: UIButton) {
+    @IBAction func presentAlertButtonTapped(_ sender: UIButton) {
         let alertVC = getAlertVC(message: "present alert.") { [weak self] in
             self?.dismiss(animated: true, completion: nil)
             self?.addLogToTextView("Dismiss alert.")
@@ -36,6 +39,10 @@ class ViewController: UIViewController {
         addLogToTextView("Present alert to another window.")
     }
     
+    @IBAction func askPermissionButtonTapped(_ sender: UIButton) {
+        requestRecordPermission()
+    }
+    
     private lazy var window: UIWindow = {
         addLogToTextView("Init another window.")
         if let windowScene = self.view.window?.windowScene {
@@ -55,6 +62,12 @@ class ViewController: UIViewController {
         return $0
     }(UIWindow())
     
+    // MARK: - Audio
+    
+    private lazy var audioSession = AVAudioSession.sharedInstance()
+    
+    // MARK: - Notification
+    
     private lazy var notificationCenter = NotificationCenter.default
     
     private lazy var didBecomeActiveNotification = UIApplication.didBecomeActiveNotification
@@ -69,6 +82,8 @@ class ViewController: UIViewController {
     
     private lazy var selectorFunc = #selector(receiveNotification(notification:))
     
+    // MARK: - Life Cycle
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -80,6 +95,8 @@ class ViewController: UIViewController {
         
         unregisterNotification()
     }
+    
+    // MARK: -
     
     private func registerNotification() {
         notificationCenter.addObserver(self, selector: selectorFunc, name: didBecomeActiveNotification, object: nil)
@@ -129,6 +146,24 @@ class ViewController: UIViewController {
         }
         alertVC.addAction(alertAction)
         return alertVC
+    }
+    
+    private func requestRecordPermission() {
+        switch audioSession.recordPermission {
+        case .denied:
+            addLogToTextView("Record permission is denied.")
+        case .granted:
+            addLogToTextView("Record permission is granted.")
+        case .undetermined:
+            addLogToTextView("Record permission is undetermined.")
+            audioSession.requestRecordPermission { [weak self] (granted) in
+                DispatchQueue.main.async { [weak self] in
+                    self?.addLogToTextView(granted ? "User grant." : "User deny.")
+                }
+            }
+        @unknown default:
+            addLogToTextView("Record permission status: \(audioSession.recordPermission).")
+        }
     }
 }
 

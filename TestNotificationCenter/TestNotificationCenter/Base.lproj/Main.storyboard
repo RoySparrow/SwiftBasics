@@ -29,26 +29,36 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Pd5-UB-2yv">
-                                <rect key="frame" x="68" y="753" width="278" height="65"/>
+                                <rect key="frame" x="16" y="753" width="382" height="65"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDw-IO-X7Z">
-                                        <rect key="frame" x="0.0" y="14.5" width="129" height="36"/>
+                                        <rect key="frame" x="0.0" y="16.5" width="114" height="32"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="Show Alert"/>
+                                        <state key="normal" title="Present Alert"/>
                                         <connections>
-                                            <action selector="showAlertButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tzG-cR-zWV"/>
+                                            <action selector="presentAlertButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tzG-cR-zWV"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HZL-by-RT1">
-                                        <rect key="frame" x="149" y="14.5" width="129" height="36"/>
+                                        <rect key="frame" x="134" y="16.5" width="114" height="32"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Show Window"/>
                                         <connections>
                                             <action selector="showWindowButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Iom-2o-K2O"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YQT-E3-o02">
+                                        <rect key="frame" x="268" y="16.5" width="114" height="32"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Ask Permission"/>
+                                        <connections>
+                                            <action selector="askPermissionButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nF3-2s-jBu"/>
                                         </connections>
                                     </button>
                                 </subviews>
