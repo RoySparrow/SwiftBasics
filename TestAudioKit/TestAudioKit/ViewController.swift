@@ -7,35 +7,62 @@
 //
 
 import AudioKit
+import AVFoundation
 import UIKit
 
-class ViewController: UIViewController {
+// Test receive voice from microphone.
 
-    private lazy var mic = AKMicrophone()
+class ViewController: UIViewController {
     
-    private lazy var tracker = AKFrequencyTracker(mic)
+    private var engine: AudioEngine!
     
-    private lazy var silence = AKBooster(tracker, gain: 0)
+    private var mic: AudioEngine.InputNode? = nil
+    
+    private var tracker: PitchTap? = nil
+    
+    private var silence: Fader? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("viewDidLoad.")
         setup()
     }
-
-    private func setup() {
-        AKSettings.audioInputEnabled = true
-        AKSettings.defaultToSpeaker = true
-        AKSettings.disableAudioSessionDeactivationOnStop = true
-        AKSettings.useBluetooth = true
-        AKManager.output = silence
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         do {
-            try AKManager.start()
+            try engine.start()
+            tracker?.start()
         } catch {
-            print("Start AudioKit failed. error: \(error)")
+            print("AudioEngine start failed. error: \(error)")
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        engine.stop()
+    }
+    
+    private func setup() {
+        Settings.audioInputEnabled = true
+        Settings.enableLogging = true
+        
+        engine = AudioEngine()
+        mic = engine.input
+        if let mic = mic {
+            tracker = PitchTap(mic, handler: { [weak self] (pitch, amp) in
+                self?.pitchHandler(pitch: pitch, amp: amp)
+            })
+            silence = Fader(mic, gain: 0)
+        }
+        engine.output = silence
+    }
+    
+    private func pitchHandler(pitch: [Float], amp: [Float]) {
+        print("pitch: \(pitch)")
+        print("amp: \(amp)")
     }
 }
 
