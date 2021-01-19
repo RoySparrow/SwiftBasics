@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,7 @@
 		4986EAE025AEF3E800DE4B29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4986EADE25AEF3E800DE4B29 /* Main.storyboard */; };
 		4986EAE225AEF3EC00DE4B29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4986EAE125AEF3EC00DE4B29 /* Assets.xcassets */; };
 		4986EAE525AEF3EC00DE4B29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4986EAE325AEF3EC00DE4B29 /* LaunchScreen.storyboard */; };
+		49ADB34D25B696CC00C0529B /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 49ADB34C25B696CC00C0529B /* AudioKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49ADB34D25B696CC00C0529B /* AudioKit in Frameworks */,
 				3321A38ED6ECAB20D50A57FC /* Pods_TestAudioKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -99,17 +101,18 @@
 			buildConfigurationList = 4986EAE925AEF3EC00DE4B29 /* Build configuration list for PBXNativeTarget "TestAudioKit" */;
 			buildPhases = (
 				4A91755041904433FACC7F96 /* [CP] Check Pods Manifest.lock */,
-				043EE70FB2330A3082F6EA7E /* [CP] Prepare Artifacts */,
 				4986EAD125AEF3E800DE4B29 /* Sources */,
 				4986EAD225AEF3E800DE4B29 /* Frameworks */,
 				4986EAD325AEF3E800DE4B29 /* Resources */,
-				DE8884F7BD2AC5265B162DD6 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = TestAudioKit;
+			packageProductDependencies = (
+				49ADB34C25B696CC00C0529B /* AudioKit */,
+			);
 			productName = TestAudioKit;
 			productReference = 4986EAD525AEF3E800DE4B29 /* TestAudioKit.app */;
 			productType = "com.apple.product-type.application";
@@ -138,6 +141,9 @@
 				Base,
 			);
 			mainGroup = 4986EACC25AEF3E800DE4B29;
+			packageReferences = (
+				49ADB34B25B696CC00C0529B /* XCRemoteSwiftPackageReference "AudioKit" */,
+			);
 			productRefGroup = 4986EAD625AEF3E800DE4B29 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -161,23 +167,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		043EE70FB2330A3082F6EA7E /* [CP] Prepare Artifacts */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TestAudioKit/Pods-TestAudioKit-artifacts-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Prepare Artifacts";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TestAudioKit/Pods-TestAudioKit-artifacts-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TestAudioKit/Pods-TestAudioKit-artifacts.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		4A91755041904433FACC7F96 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -198,23 +187,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DE8884F7BD2AC5265B162DD6 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TestAudioKit/Pods-TestAudioKit-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-TestAudioKit/Pods-TestAudioKit-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TestAudioKit/Pods-TestAudioKit-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -310,6 +282,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				VALID_ARCHS = "arm64 arm64e armv7 armv7s";
 			};
 			name = Debug;
@@ -365,6 +338,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "arm64 arm64e armv7 armv7s";
 			};
@@ -376,13 +350,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0.0.0.2021011901;
 				DEVELOPMENT_TEAM = 6556MVJ87G;
 				INFOPLIST_FILE = TestAudioKit/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = SparrowStudio.TestAudioKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -396,13 +372,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 0.0.0.2021011901;
 				DEVELOPMENT_TEAM = 6556MVJ87G;
 				INFOPLIST_FILE = TestAudioKit/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = SparrowStudio.TestAudioKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -432,6 +410,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		49ADB34B25B696CC00C0529B /* XCRemoteSwiftPackageReference "AudioKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/AudioKit";
+			requirement = {
+				branch = "v5-main";
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		49ADB34C25B696CC00C0529B /* AudioKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 49ADB34B25B696CC00C0529B /* XCRemoteSwiftPackageReference "AudioKit" */;
+			productName = AudioKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4986EACD25AEF3E800DE4B29 /* Project object */;
 }
