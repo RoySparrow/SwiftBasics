@@ -57,6 +57,10 @@ class PlaybackViewModel {
             try engine.start()
             tracker.start()
             player.play()
+            player.completionHandler = { [weak self] in
+                print("Player completion.")
+                self?.stop()
+            }
             hasStart = true
         } catch {
             print("AudioEngine start failed. error: \(error)")
@@ -66,9 +70,12 @@ class PlaybackViewModel {
     func stop() {
         guard hasStart else { return }
         
-        player.stop()
-        engine.stop()
-        hasStart = false
+        // Some operation run in main thread will crash, especially stop play node.
+        DispatchQueue.global().async { [weak self] in
+            self?.player.stop()
+            self?.engine.stop()
+            self?.hasStart = false
+        }
     }
     
     func playback() {
