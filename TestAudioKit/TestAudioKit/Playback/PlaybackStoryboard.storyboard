@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Playback View Controller-->
+        <scene sceneID="HRb-lV-z40">
+            <objects>
+                <viewController storyboardIdentifier="PlaybackViewController" id="svz-re-n0b" customClass="PlaybackViewController" customModule="TestAudioKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hQt-YO-xKm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5V-r0-5xt">
+                                <rect key="frame" x="157" y="305.5" width="100" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="4Ib-el-ec7"/>
+                                    <constraint firstAttribute="width" constant="100" id="A3I-4o-Oep"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <action selector="startButtonTapped:" destination="svz-re-n0b" eventType="touchUpInside" id="YIY-Ai-yDk"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Lr-iV-jF8">
+                                <rect key="frame" x="157" y="410.5" width="100" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="XY9-aS-wSf"/>
+                                    <constraint firstAttribute="width" constant="100" id="pgH-bL-ag2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Stop"/>
+                                <connections>
+                                    <action selector="stopButtonTapped:" destination="svz-re-n0b" eventType="touchUpInside" id="CHy-HI-JmG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jUB-iz-gua">
+                                <rect key="frame" x="157" y="515.5" width="100" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="Ahx-J3-Stg"/>
+                                    <constraint firstAttribute="width" constant="100" id="fUj-yZ-cKh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <state key="normal" title="Playback"/>
+                                <connections>
+                                    <action selector="playbackButtonTapped:" destination="svz-re-n0b" eventType="touchUpInside" id="3YU-yy-6AM"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="tUm-td-rdN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="jUB-iz-gua" firstAttribute="top" secondItem="7Lr-iV-jF8" secondAttribute="bottom" constant="30" id="5pU-xI-hfy"/>
+                            <constraint firstItem="a5V-r0-5xt" firstAttribute="centerX" secondItem="hQt-YO-xKm" secondAttribute="centerX" id="IUG-ub-wQu"/>
+                            <constraint firstItem="7Lr-iV-jF8" firstAttribute="centerX" secondItem="hQt-YO-xKm" secondAttribute="centerX" id="WLo-cn-tWV"/>
+                            <constraint firstItem="7Lr-iV-jF8" firstAttribute="top" secondItem="a5V-r0-5xt" secondAttribute="bottom" constant="30" id="gia-dj-caa"/>
+                            <constraint firstItem="jUB-iz-gua" firstAttribute="centerX" secondItem="hQt-YO-xKm" secondAttribute="centerX" id="kVw-35-ND5"/>
+                            <constraint firstItem="7Lr-iV-jF8" firstAttribute="centerY" secondItem="hQt-YO-xKm" secondAttribute="centerY" id="rwX-fQ-JNB"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="edH-xq-kFJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-161" y="117"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

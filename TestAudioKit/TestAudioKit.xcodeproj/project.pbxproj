@@ -9,24 +9,30 @@
 /* Begin PBXBuildFile section */
 		4986EAD925AEF3E800DE4B29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4986EAD825AEF3E800DE4B29 /* AppDelegate.swift */; };
 		4986EADB25AEF3E800DE4B29 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4986EADA25AEF3E800DE4B29 /* SceneDelegate.swift */; };
-		4986EADD25AEF3E800DE4B29 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4986EADC25AEF3E800DE4B29 /* ViewController.swift */; };
+		4986EADD25AEF3E800DE4B29 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4986EADC25AEF3E800DE4B29 /* LaunchViewController.swift */; };
 		4986EAE025AEF3E800DE4B29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4986EADE25AEF3E800DE4B29 /* Main.storyboard */; };
 		4986EAE225AEF3EC00DE4B29 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4986EAE125AEF3EC00DE4B29 /* Assets.xcassets */; };
 		4986EAE525AEF3EC00DE4B29 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4986EAE325AEF3EC00DE4B29 /* LaunchScreen.storyboard */; };
 		49ADB34D25B696CC00C0529B /* AudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 49ADB34C25B696CC00C0529B /* AudioKit */; };
 		49ADB35A25B7DC6500C0529B /* Spring Chicken.aac in Resources */ = {isa = PBXBuildFile; fileRef = 49ADB35925B7DC6500C0529B /* Spring Chicken.aac */; };
+		49ADB35E25B7E21100C0529B /* PlaybackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ADB35D25B7E21100C0529B /* PlaybackViewController.swift */; };
+		49ADB36225B7E24000C0529B /* PlaybackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49ADB36125B7E24000C0529B /* PlaybackViewModel.swift */; };
+		49ADB36725B7F0D800C0529B /* PlaybackStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 49ADB36625B7F0D800C0529B /* PlaybackStoryboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4986EAD525AEF3E800DE4B29 /* TestAudioKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestAudioKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4986EAD825AEF3E800DE4B29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4986EADA25AEF3E800DE4B29 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4986EADC25AEF3E800DE4B29 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4986EADC25AEF3E800DE4B29 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		4986EADF25AEF3E800DE4B29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4986EAE125AEF3EC00DE4B29 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4986EAE425AEF3EC00DE4B29 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4986EAE625AEF3EC00DE4B29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		49ADB35925B7DC6500C0529B /* Spring Chicken.aac */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Spring Chicken.aac"; sourceTree = "<group>"; };
+		49ADB35D25B7E21100C0529B /* PlaybackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackViewController.swift; sourceTree = "<group>"; };
+		49ADB36125B7E24000C0529B /* PlaybackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackViewModel.swift; sourceTree = "<group>"; };
+		49ADB36625B7F0D800C0529B /* PlaybackStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PlaybackStoryboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,10 +66,11 @@
 		4986EAD725AEF3E800DE4B29 /* TestAudioKit */ = {
 			isa = PBXGroup;
 			children = (
+				49ADB35C25B7E1E200C0529B /* Playback */,
 				49ADB35825B7DC2D00C0529B /* Resources */,
 				4986EAD825AEF3E800DE4B29 /* AppDelegate.swift */,
 				4986EADA25AEF3E800DE4B29 /* SceneDelegate.swift */,
-				4986EADC25AEF3E800DE4B29 /* ViewController.swift */,
+				4986EADC25AEF3E800DE4B29 /* LaunchViewController.swift */,
 				4986EADE25AEF3E800DE4B29 /* Main.storyboard */,
 				4986EAE125AEF3EC00DE4B29 /* Assets.xcassets */,
 				4986EAE325AEF3EC00DE4B29 /* LaunchScreen.storyboard */,
@@ -78,6 +85,16 @@
 				49ADB35925B7DC6500C0529B /* Spring Chicken.aac */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		49ADB35C25B7E1E200C0529B /* Playback */ = {
+			isa = PBXGroup;
+			children = (
+				49ADB36625B7F0D800C0529B /* PlaybackStoryboard.storyboard */,
+				49ADB35D25B7E21100C0529B /* PlaybackViewController.swift */,
+				49ADB36125B7E24000C0529B /* PlaybackViewModel.swift */,
+			);
+			path = Playback;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,6 +162,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4986EAE525AEF3EC00DE4B29 /* LaunchScreen.storyboard in Resources */,
+				49ADB36725B7F0D800C0529B /* PlaybackStoryboard.storyboard in Resources */,
 				49ADB35A25B7DC6500C0529B /* Spring Chicken.aac in Resources */,
 				4986EAE225AEF3EC00DE4B29 /* Assets.xcassets in Resources */,
 				4986EAE025AEF3E800DE4B29 /* Main.storyboard in Resources */,
@@ -158,9 +176,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4986EADD25AEF3E800DE4B29 /* ViewController.swift in Sources */,
+				4986EADD25AEF3E800DE4B29 /* LaunchViewController.swift in Sources */,
+				49ADB35E25B7E21100C0529B /* PlaybackViewController.swift in Sources */,
 				4986EAD925AEF3E800DE4B29 /* AppDelegate.swift in Sources */,
 				4986EADB25AEF3E800DE4B29 /* SceneDelegate.swift in Sources */,
+				49ADB36225B7E24000C0529B /* PlaybackViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
