@@ -84,6 +84,16 @@ class PlaybackViewModel {
     
     private func pitchHandler(pitch: [Float], amp: [Float]) {
         print("pitch: \(pitch), amp: \(amp)")
+        
+        let playerNode = player.playerNode
+        guard let lastRenderTime = playerNode.lastRenderTime else { return }
+        guard let playerTime = playerNode.playerTime(forNodeTime: lastRenderTime) else { return }
+        
+        let sampleRate = playerTime.sampleRate
+        let sampleTime = playerTime.sampleTime
+        let currentTime = Double(sampleTime) / sampleRate
+        
+        print("duration: \(player.duration) sec, lastRenderTime: \(lastRenderTime), playerTime: \(playerTime), currentTime: \(currentTime) sec")
     }
     
     deinit {
