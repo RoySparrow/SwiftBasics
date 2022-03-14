@@ -10,7 +10,7 @@ import Foundation
 
 class ViewModel {
     
-    private let a = CurrentValueSubject<Int, Error>(10)
+    private let passPublisher = PassthroughSubject<Int, Never>()
     
     private var bags: [AnyCancellable] = []
     
@@ -22,7 +22,7 @@ class ViewModel {
         NetworkHelper.shared.callWithCombine()
     }
     
-    func testMap() {
+    func test() {
 //        let value = 10
 //        value.words.publisher
 //            .map({ $0 + 1 })
@@ -37,14 +37,18 @@ class ViewModel {
 //                print(value)
 //            }.store(in: &bags)
         
-//        a.sink { completion in
-//            print(completion)
-//        } receiveValue: { value in
-//            print(value)
-//        }.store(in: &bags)
-//        a.value += 1
-//        a.value = 60
-//        a.value = -100
+        passPublisher
+            .sink { value in
+                print("pass \(value)")
+            }.store(in: &bags)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) { [weak self] in
+            self?.passPublisher.send(100)
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 6) { [weak self] in
+            self?.passPublisher.send(500)
+        }
     }
     
     func increase() {

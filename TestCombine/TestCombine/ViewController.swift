@@ -51,7 +51,7 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
         
 //        viewModel.callAPI()
-//        viewModel.testMap()
+        viewModel.test()
     }
     
     private func setupConstraints() {
@@ -78,10 +78,35 @@ class ViewController: UIViewController {
     }
     
     private func setupBinding() {
+//        viewModel.$value
+//            .sink(receiveCompletion: { completion in
+//                switch completion {
+//                case .finished:
+//                    print("value finished.")
+//                case .failure(_):
+//                    print("value failure.")
+//                }
+//            }, receiveValue: { [weak self] value in
+//                self?.label.text = "\(value)"
+//            })
+//            .store(in: &bags)
+        
         viewModel.$value
-            .sink { [weak self] value in
+            .handleEvents (receiveSubscription: { subscription in
+                print("value subscription: \(subscription)")
+            }, receiveOutput: { [weak self] value in
                 self?.label.text = "\(value)"
-            }
+                print("value output: \(value)")
+            }, receiveCompletion: { completion in
+                print("value completion")
+            }, receiveCancel: {
+                print("value cancel")
+            }, receiveRequest: { demand in
+                print("value request: \(demand)")
+            })
+            .sink(receiveValue: { value in
+                print("receive value: \(value)")
+            })
             .store(in: &bags)
     }
     
